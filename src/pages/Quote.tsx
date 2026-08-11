@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, FileText } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import { supabase } from '../lib/supabase';
+
 import { services } from '../data/services';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';

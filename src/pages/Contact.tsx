@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import { supabase } from '../lib/supabase';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 

@@ -27,7 +27,7 @@ export default function ShapingFuture() {
     <section id="contact" className="relative py-24 overflow-hidden bg-primary-900">
       <div className="absolute inset-0">
         <img
-          src="/images/partner-with-us.jpg"
+          src="/partner-with-us.jpg"
           alt="partner with us"
           className="w-full h-full object-cover"
         />
