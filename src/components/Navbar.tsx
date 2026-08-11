@@ -1,118 +1,109 @@
-import React, { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { ActiveTab } from "../types";
+import { useState, useEffect } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
-interface NavbarProps {
-  activeTab: ActiveTab;
-  setActiveTab: (tab: ActiveTab) => void;
-}
+const navLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Contact', path: '/contact' },
+];
 
-export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const navItems: { label: string; tab: ActiveTab }[] = [
-    { label: "Home",     tab: "HOME"     },
-    { label: "Services", tab: "SERVICES" },
-    { label: "About",    tab: "ABOUT"    },
-    { label: "Contact",  tab: "CONTACT"  },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  const isHome = location.pathname === '/';
+  const solid = scrolled || !isHome;
 
   return (
-    <header className="sticky top-0 z-50 bg-mat-dark-900 shadow-lg">
-      {/* Utility strip */}
-      <div className="bg-mat-dark-950 border-b border-mat-dark-800 hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-9 flex items-center justify-end gap-5">
-          <a
-            href="tel:+2347062062322"
-            className="flex items-center gap-1.5 text-mat-dark-300 hover:text-white transition-colors text-[11px] font-sans"
-          >
-            <Phone className="w-3 h-3 text-mat-blue-500" />
-            <span>+234 706 206 2322</span>
-          </a>
-          <span className="text-mat-dark-700 text-xs">|</span>
-          <a
-            href="mailto:info@capella.com.ng"
-            className="text-mat-dark-400 hover:text-white transition-colors text-[11px] font-sans"
-          >
-            info@capella.com.ng
-          </a>
-        </div>
-      </div>
-
-      {/* Main bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[70px] flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        solid ? 'bg-primary-900/97 shadow-lg' : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18 py-4">
         {/* Logo */}
-        <button
-          onClick={() => setActiveTab("HOME")}
-          className="flex items-center gap-3 cursor-pointer group"
-        >
-          <div className="w-8 h-8 bg-mat-blue-500 flex items-center justify-center rounded-sm group-hover:bg-mat-blue-600 transition-colors">
-            <span className="font-display font-black text-white text-xs tracking-tight">C</span>
-          </div>
-          <span className="font-display font-bold text-white tracking-wide text-base uppercase">
-            Capella<span className="text-mat-blue-500 ml-1 font-normal text-sm normal-case">Global</span>
-          </span>
-        </button>
+        <Link to="/" className="flex items-center gap-3 group transition-transform duration-200 group-hover:scale-105">
+          <img src="/capella_global_logo_clean.svg" alt="Capella Global" className="h-12 w-auto" />
+        </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item.tab}
-              onClick={() => setActiveTab(item.tab)}
-              className={`font-display font-600 text-[11px] tracking-[0.18em] uppercase transition-all relative py-1 cursor-pointer ${
-                activeTab === item.tab
-                  ? "text-white"
-                  : "text-mat-dark-300 hover:text-white"
-              }`}
-            >
-              {item.label}
-              {activeTab === item.tab && (
-                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-mat-blue-500 rounded-full" />
-              )}
-            </button>
-          ))}
-          <button
-            onClick={() => setActiveTab("CONTACT")}
-            className="mat-btn-primary ml-2 text-[10px]"
-          >
-            Get a Quote
-          </button>
+          {navLinks.map((link) => {
+            const active = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm transition-colors duration-200 font-medium ${
+                  active ? 'text-accent-400' : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
+
+        {/* CTA */}
+        <Link
+          to="/quote"
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-accent-400 text-primary-900 text-sm font-semibold rounded transition-all duration-200 hover:bg-accent-300 hover:shadow-lg hover:shadow-accent-900/30"
+        >
+          <Phone className="w-3.5 h-3.5" /> Request a Quote
+        </Link>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-mat-dark-200 hover:text-white transition-colors p-1"
+          className="md:hidden text-white p-2"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile drawer */}
-      {open && (
-        <div className="md:hidden bg-mat-dark-800 border-t border-mat-dark-700 py-4 px-6 space-y-1 mat-fade-up">
-          {navItems.map((item) => (
-            <button
-              key={item.tab}
-              onClick={() => { setActiveTab(item.tab); setOpen(false); }}
-              className={`w-full text-left py-3 px-4 font-display font-semibold text-[11px] uppercase tracking-widest rounded-sm transition-colors ${
-                activeTab === item.tab
-                  ? "bg-mat-blue-500 text-white"
-                  : "text-mat-dark-200 hover:bg-mat-dark-700 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-          <button
-            onClick={() => { setActiveTab("CONTACT"); setOpen(false); }}
-            className="mat-btn-primary w-full justify-center mt-3"
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden bg-primary-900 ${
+          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="px-6 py-4 flex flex-col gap-4 border-t border-white/10">
+          {navLinks.map((link) => {
+            const active = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-medium transition-colors ${
+                  active ? 'text-accent-400' : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <Link
+            to="/quote"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent-400 text-primary-900 text-sm font-semibold rounded mt-2"
           >
-            Get a Quote
-          </button>
+            <Phone className="w-3.5 h-3.5" /> Request a Quote
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
