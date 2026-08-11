@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title desc">
+  <title id="title">Capella Global</title>
+  <desc id="desc">Capella Global — Powering businesses. Fueling growth.</desc>
+  <rect width="720" height="180" fill="white"/>
+  <g transform="translate(18 20)">
+    <path d="M112 9C62 3 20 36 20 86c0 36 22 64 54 74-23-13-37-35-37-63 0-40 32-72 75-72z" fill="#132238"/>
+    <path d="M108 9c29 9 49 37 49 70 0 37-22 67-53 78 42-3 74-35 74-78 0-31-18-58-45-70z" fill="#132238"/>
+    <path d="M103 30c-8 26-37 52-37 77 0 18 14 31 32 31s32-13 32-31c0-25-20-49-27-77z" fill="#c89b3c"/>
+    <path d="M13 128c24 17 57 24 90 16 30-7 53-24 68-45-23 17-48 27-75 31-31 4-59-1-83-14z" fill="#c89b3c"/>
+  </g>
+  <rect x="205" y="20" width="3" height="140" fill="#c89b3c"/>
+  <text x="242" y="76" fill="#132238" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="700" letter-spacing="3">CAPELLA</text>
+  <text x="244" y="124" fill="#c89b3c" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="14">GLOBAL</text>
+  <text x="245" y="153" fill="#4b5563" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="1">POWERING BUSINESSES. FUELING GROWTH.</text>
+</svg>
