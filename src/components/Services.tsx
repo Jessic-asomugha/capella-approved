@@ -11,10 +11,10 @@ export default function Services() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">What We Do</span>
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2 mb-4">
-            Diesel Supply, Done Right
+            Reliable Diesel Supply for Every Operation
           </h2>
           <p className="text-neutral-600 leading-relaxed">
-            Unadulterated diesel delivered across every industry we serve.
+            Dependable fuel delivery built around uptime, practical value, and service businesses can count on.
           </p>
         </div>
 
@@ -41,11 +41,12 @@ export default function Services() {
             <div className="p-7 flex flex-col justify-center">
               <h3 className="text-lg font-semibold text-neutral-900 mb-3">Diesel (AGO) Supply</h3>
               <p className="text-sm text-neutral-600 leading-relaxed mb-4">
-                Reliable supply of Automotive Gas Oil for businesses that can't afford downtime —
-                from hospitals and hotels to factories, estates, and government institutions.
+                Dependable diesel delivery that helps businesses maintain smooth operations through
+                reliable supply, competitive pricing, and professional service across the industries
+                we support.
               </p>
               <ul className="grid grid-cols-2 gap-2 mb-5">
-                {['Reliable supply', 'Flexible volumes', 'Competitive pricing', 'Timely delivery'].map((f) => (
+                {['Reliable supply', 'Flexible volumes', 'Competitive pricing', 'Professional service'].map((f) => (
                   <li key={f} className="flex items-center gap-1.5 text-xs text-neutral-700">
                     <Check className="w-3.5 h-3.5 text-primary-600 flex-shrink-0" />
                     {f}

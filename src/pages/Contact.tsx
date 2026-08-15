@@ -4,6 +4,24 @@ import PageHero from '../components/PageHero';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
+const WEB3FORMS_ACCESS_KEY = '79fc4dbc-cbd9-4a8c-be55-5476c77b2bfb';
+
+const persistContactSubmission = async (payload: Record<string, unknown>) => {
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, ...payload }),
+  });
+
+  const result = await response.json();
+
+  if (!result.success) {
+    return { error: { message: result.message || 'Submission failed' } };
+  }
+
+  return { error: null };
+};
+
 const contactInfo = [
   { icon: MapPin, label: 'Visit Us', value: 'Plot 471, behind Banilux Motors, Abuja 900211, Federal Capital Territory' },
   { icon: Phone, label: 'Call Us', value: '0706 206 2322 · 0904 848 6637' },
@@ -32,20 +50,23 @@ export default function Contact() {
     setStatus('submitting');
     setErrorMsg('');
 
-    const { error } = await supabase.from('contact_submissions').insert({
+    const payload = {
       name: form.name,
       email: form.email,
       phone: form.phone || null,
       company: form.company || null,
       subject: form.subject,
       message: form.message,
-    });
+    };
+
+    const { error } = await persistContactSubmission(payload);
 
     if (error) {
       setStatus('error');
       setErrorMsg('Something went wrong. Please try again or email us directly.');
       return;
     }
+
     setStatus('success');
     setForm({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
   };

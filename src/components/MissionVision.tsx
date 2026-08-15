@@ -37,14 +37,13 @@ export default function MissionVision() {
         <div ref={ref} className="order-1 lg:order-2">
           <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">About Capella</span>
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2 mb-6">
-            Integrated Solutions.<br />Trusted Results.
+            Powering businesses.<br />Fueling growth.
           </h2>
           <p className="text-neutral-600 text-base leading-relaxed mb-8">
-            Capella Integrated Global Limited is a diversified Nigerian company providing
-            integrated business solutions across the oil and gas, procurement, logistics,
-            engineering, construction support, and general contracting sectors. We deliver
-            innovative, efficient, and cost-effective solutions tailored to meet the unique
-            needs of corporate organisations, government institutions, and private businesses.
+            Capella Integrated Global Limited is a Nigerian company focused on providing
+            reliable diesel supply to businesses and organisations across different industries.
+            We help businesses maintain smooth operations through dependable fuel supply,
+            competitive pricing, and professional service.
           </p>
 
           <div className="space-y-6">
@@ -52,17 +51,17 @@ export default function MissionVision() {
               {
                 icon: Target,
                 title: 'Our Mission',
-                desc: 'To deliver innovative business solutions that exceed customer expectations.',
+                desc: 'To provide reliable, quality fuel supply that helps businesses maintain efficient, uninterrupted operations — delivered with professionalism and lasting value.',
               },
               {
                 icon: Eye,
                 title: 'Our Vision',
-                desc: "To become Nigeria's most trusted integrated services company.",
+                desc: 'To grow into a trusted Nigerian name in energy solutions, known for reliability and sustainable value.',
               },
               {
                 icon: BarChart3,
-                title: 'Our Values',
-                desc: 'Integrity, Professionalism, Innovation, Quality, Teamwork, and Safety guide everything we do.',
+                title: 'Why Choose Us',
+                desc: 'Reliable supply, trusted product quality, practical pricing, and service that grows with the businesses we serve.',
               },
             ].map((item, i) => {
               const Icon = item.icon;

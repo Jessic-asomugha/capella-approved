@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import { ShieldCheck, Users, Award, Truck, ThumbsUp, Briefcase } from 'lucide-react';
 
 const accomplishments = [
-  { icon: ShieldCheck, label: 'Registered Nigerian Company' },
-  { icon: Users, label: 'Experienced management' },
-  { icon: Briefcase, label: 'Professional workforce' },
-  { icon: Truck, label: 'Reliable logistics' },
+  { icon: ShieldCheck, label: 'Reliable diesel supply' },
+  { icon: Users, label: 'Professional service' },
+  { icon: Briefcase, label: 'Business-focused delivery' },
+  { icon: Truck, label: 'Consistent fuel support' },
   { icon: Award, label: 'Competitive pricing' },
-  { icon: ThumbsUp, label: 'Customer-focused service' },
+  { icon: ThumbsUp, label: 'Long-term customer value' },
 ];
 
 export default function Accomplishments() {

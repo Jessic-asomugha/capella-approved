@@ -7,10 +7,10 @@ export default function CtaBand() {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <h2 className="text-white text-2xl md:text-3xl font-bold mb-2">
-            Ready to power your operations?
+            Ready to keep your operations moving?
           </h2>
           <p className="text-white/80 text-sm md:text-base">
-            Talk to our team about integrated business solutions tailored to your needs.
+            Talk to our team about dependable diesel supply, competitive pricing, and professional service for your business.
           </p>
         </div>
         <Link

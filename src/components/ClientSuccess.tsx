@@ -35,7 +35,7 @@ export default function ClientSuccess() {
             <span className="text-white font-semibold text-lg">Built on reliability and trust</span>
           </div>
           <p className="text-white/70 mt-2">
-            From construction sites to oil and gas operations, organisations rely on Capella for dependable integrated solutions.
+            From factories and estates to hospitals and logistics operations, businesses trust Capella for dependable diesel supply and consistent support.
           </p>
         </div>
 

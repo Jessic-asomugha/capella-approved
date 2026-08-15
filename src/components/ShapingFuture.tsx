@@ -5,18 +5,18 @@ import { ArrowRight, Briefcase, Truck, MapPin } from 'lucide-react';
 const pillars = [
   {
     icon: Briefcase,
-    title: 'Integrated Solutions',
-    desc: 'Oil and gas, procurement, logistics, engineering, construction support, and general contracting under one roof.',
+    title: 'Reliable Diesel Supply',
+    desc: 'Dependable fuel delivery that helps businesses maintain smooth, uninterrupted operations.',
   },
   {
     icon: Truck,
-    title: 'Reliable Logistics',
-    desc: 'Dependable delivery and professional workforce ensuring timely execution across our service areas.',
+    title: 'Professional Service',
+    desc: 'A responsive team delivering consistent support, competitive value, and dependable performance.',
   },
   {
     icon: MapPin,
     title: 'Coverage Across Nigeria',
-    desc: 'Serving Abuja, Kaduna, Nasarawa, Niger State, and Kogi, with international partnerships on request.',
+    desc: 'Serving businesses across key operational areas with a focus on reliability and long-term value.',
   },
 ];
 
@@ -40,12 +40,12 @@ export default function ShapingFuture() {
           <div>
             <span className="text-accent-400 text-xs font-semibold tracking-widest uppercase">Why Partner With Us</span>
             <h2 className="text-white text-3xl md:text-4xl font-bold mt-2 mb-6 leading-tight">
-              Integrated Solutions.<br />Trusted Results.
+              Powering businesses.<br />Fueling growth.
             </h2>
             <p className="text-white/60 text-base leading-relaxed mb-10 max-w-lg">
-              Capella Integrated Global delivers complete business solutions backed by
-              professionalism, integrity, and timely execution. Our focus is building lasting
-              relationships through quality service and dependable performance.
+              Capella delivers dependable diesel supply backed by professionalism, consistency,
+              and practical value. Our focus is helping businesses stay productive with reliable
+              service they can count on.
             </p>
 
             <Link

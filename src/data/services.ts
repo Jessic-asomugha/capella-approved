@@ -13,9 +13,9 @@ export const services: Service[] = [
   {
     icon: Droplets,
     title: 'Diesel (AGO) Supply',
-    short: 'Reliable supply of Automotive Gas Oil for businesses that can\'t afford downtime.',
-    desc: 'Reliable supply of Automotive Gas Oil for businesses that can\'t afford downtime — from hospitals and hotels to factories, estates, and government institutions.',
-    features: ['Reliable supply network', 'Flexible delivery volumes', 'Competitive pricing', 'Timely delivery'],
+    short: 'Dependable diesel supply that keeps operations running smoothly and efficiently.',
+    desc: 'Dependable diesel delivery that helps businesses maintain smooth operations through reliable supply, competitive pricing, and professional service across different industries.',
+    features: ['Reliable diesel supply', 'Flexible delivery volumes', 'Competitive pricing', 'Professional service'],
     image: '/images/diesel-supply.jpg',
   },
 ];

@@ -22,7 +22,7 @@ export default function Footer() {
               <img src="/capella_global_logo_clean.svg" alt="Capella Global" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-sm mb-6">
-              A diversified Nigerian company providing integrated business solutions across oil and gas, procurement, logistics, engineering, construction support, and general contracting.
+              Capella Integrated Global Limited is a Nigerian company focused on providing reliable diesel supply to businesses and organisations across different industries.
             </p>
             <div className="flex gap-3">
               {[Linkedin, Twitter, Facebook].map((Icon, i) => (

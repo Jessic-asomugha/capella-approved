@@ -33,8 +33,8 @@ export default function About() {
       <PageHero
         crumb="About"
         label="About Capella"
-        title="Integrated Solutions. Trusted Results."
-        description="Capella Integrated Global Limited is a diversified Nigerian company providing integrated business solutions across the oil and gas, procurement, logistics, engineering, construction support, and general contracting sectors."
+        title="Powering Businesses. Fueling Growth."
+        description="Capella Integrated Global Limited is a Nigerian company focused on providing reliable diesel supply to businesses and organisations across different industries."
         image="https://images.pexels.com/photos/7580652/pexels-photo-7580652.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
 
@@ -66,26 +66,26 @@ export default function About() {
           <div>
             <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">Our Story</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2 mb-6">
-              A Diversified Nigerian Company
+              Reliable fuel supply for businesses that need to keep moving
             </h2>
             <div className="space-y-4 text-neutral-600 leading-relaxed">
               <p>
-                Capella Integrated Global Limited is a diversified Nigerian company providing
-                integrated business solutions across the oil and gas, procurement, logistics,
-                engineering, construction support, and general contracting sectors.
+                Capella Integrated Global Limited is a Nigerian company focused on providing
+                reliable diesel supply to businesses and organisations across different industries.
+                We understand that uninterrupted operations depend on dependable fuel delivery,
+                practical pricing, and service you can count on.
               </p>
               <p>
-                We deliver innovative, efficient, and cost-effective solutions tailored to meet
-                the unique needs of corporate organisations, government institutions, and private
-                businesses. Founded in 2024, we are built on experienced management, a professional
-                workforce, reliable logistics, and customer-focused service.
+                As we grow, we remain committed to developing solutions that meet the evolving
+                needs of the businesses and communities we serve. Our approach is built on
+                professionalism, consistency, and long-term value for every client relationship.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-8">
               {[
-                { icon: Target, title: 'Our Mission', desc: 'To deliver innovative business solutions that exceed customer expectations.' },
-                { icon: Eye, title: 'Our Vision', desc: "To become Nigeria's most trusted integrated services company." },
+                { icon: Target, title: 'Our Mission', desc: 'To provide reliable, quality fuel supply that helps businesses maintain efficient, uninterrupted operations — delivered with professionalism and lasting value.' },
+                { icon: Eye, title: 'Our Vision', desc: 'To grow into a trusted Nigerian name in energy solutions, known for reliability and sustainable value.' },
               ].map((item) => {
                 const Icon = item.icon;
                 return (
@@ -142,15 +142,17 @@ export default function About() {
             <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">Why Choose Us</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2">The Capella Advantage</h2>
             <p className="text-neutral-600 mt-4">
-              Capella Integrated Global delivers complete business solutions backed by professionalism, integrity, and timely execution. Our focus is building lasting relationships through quality service and dependable performance.
+              We help businesses stay productive with dependable diesel supply, practical value,
+              and service that supports smooth day-to-day operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Briefcase, title: 'Integrated Solutions', desc: 'Multiple business services under one roof, tailored to your organisation.' },
-              { icon: Handshake, title: 'Professionalism & Integrity', desc: 'Experienced management and a professional workforce you can trust.' },
-              { icon: Clock, title: 'Timely Execution', desc: 'Reliable logistics and dependable performance that keep your projects on schedule.' },
+              { icon: Briefcase, title: 'Reliable Supply', desc: 'Dependable diesel delivery that keeps your operations running smoothly.' },
+              { icon: Handshake, title: 'Quality & Consistency', desc: 'Trusted product quality and consistent service, every delivery.' },
+              { icon: Clock, title: 'Competitive Value', desc: 'Dependable supply paired with practical, competitive pricing.' },
+              { icon: Award, title: 'Growing With Our Customers', desc: 'As Capella grows, we continue developing new ways to create value for the businesses we serve.' },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -177,7 +179,7 @@ export default function About() {
             <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">Who We Serve</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2">Industries & Areas Covered</h2>
             <p className="text-neutral-600 mt-4">
-              We provide integrated business solutions to organisations across multiple industries, with international partnerships available upon request.
+              We provide reliable diesel supply and dependable fuel support to organisations across multiple industries, with additional partnership opportunities available on request.
             </p>
           </div>
 

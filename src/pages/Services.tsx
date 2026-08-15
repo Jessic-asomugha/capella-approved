@@ -24,8 +24,8 @@ export default function Services() {
       <PageHero
         crumb="Services"
         label="What We Do"
-        title="Diesel Supply, Delivered Right"
-        description="Quality-assured Automotive Gas Oil, delivered reliably across every industry we serve."
+        title="Diesel Supply, Delivered Reliably"
+        description="Dependable diesel supply for businesses that need smooth operations, competitive value, and uninterrupted performance."
         image="/images/diesel-supply.jpg"
       />
 
@@ -35,10 +35,10 @@ export default function Services() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-primary-600 text-xs font-semibold tracking-widest uppercase">Our Service</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-2 mb-4">
-              One Job, Done Well
+              Fuel that keeps your business moving
             </h2>
             <p className="text-neutral-600 leading-relaxed">
-              Unadulterated diesel delivered across every industry we serve.
+              Dependable diesel supply designed to support seamless operations across the industries we serve.
             </p>
           </div>
 
@@ -65,22 +65,23 @@ export default function Services() {
             <div className="p-8 lg:p-10 flex flex-col justify-center">
               <h3 className="text-2xl font-bold text-neutral-900 mb-4">Diesel (AGO) Supply</h3>
               <p className="text-neutral-600 leading-relaxed mb-5">
-                Reliable supply of Automotive Gas Oil for businesses that can't afford downtime —
-                from hospitals and hotels to factories, estates, and government institutions.
+                Dependable diesel delivery that helps businesses maintain smooth operations through
+                reliable supply, competitive pricing, and professional service across hospitals,
+                factories, estates, logistics hubs, and other organisations.
               </p>
               <div className="p-4 bg-neutral-50 rounded border border-neutral-200/60 mb-6">
                 <p className="text-sm text-neutral-700">
                   <span className="font-semibold text-neutral-900">Best For:</span>{' '}
-                  Any organisation across our served industries requiring consistent,
-                  quality-assured fuel delivery.
+                  Businesses and organisations that need consistent, quality fuel supply without
+                  disruption to their day-to-day operations.
                 </p>
               </div>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-7">
                 {[
-                  'Reliable supply network',
+                  'Reliable diesel supply',
                   'Flexible delivery volumes',
                   'Competitive pricing',
-                  'Timely delivery',
+                  'Professional service',
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-neutral-700">
                     <Check className="w-4 h-4 text-primary-600 flex-shrink-0" />

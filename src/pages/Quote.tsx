@@ -2,12 +2,28 @@ import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, FileText } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
-import { services } from '../data/services';
-
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-const budgets = ['Under $50K', '$50K - $250K', '$250K - $1M', '$1M - $5M', 'Over $5M'];
-const durations = ['Less than 1 month', '1 - 3 months', '3 - 12 months', 'Over 12 months'];
+const WEB3FORMS_ACCESS_KEY = '79fc4dbc-cbd9-4a8c-be55-5476c77b2bfb';
+
+const persistQuoteRequest = async (payload: Record<string, unknown>) => {
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, ...payload }),
+  });
+
+  const result = await response.json();
+
+  if (!result.success) {
+    return { error: { message: result.message || 'Submission failed' } };
+  }
+
+  return { error: null };
+};
+
+const volumes = ['Under 500 Litres', '500 - 2,000 Litres', '2,000 - 10,000 Litres', 'Over 10,000 Litres'];
+const frequency = ['One-time delivery', 'Weekly', 'Monthly', 'Custom schedule'];
 
 export default function Quote() {
   const [form, setForm] = useState({
@@ -15,10 +31,9 @@ export default function Quote() {
     email: '',
     phone: '',
     company: '',
-    service: '',
-    project_location: '',
-    project_duration: '',
-    budget: '',
+    delivery_location: '',
+    volume_needed: '',
+    delivery_frequency: '',
     details: '',
   });
   const [status, setStatus] = useState<Status>('idle');
@@ -33,33 +48,34 @@ export default function Quote() {
     setStatus('submitting');
     setErrorMsg('');
 
-    const { error } = await supabase.from('quote_requests').insert({
+    const payload = {
       name: form.name,
       email: form.email,
       phone: form.phone || null,
       company: form.company || null,
-      service: form.service,
-      project_location: form.project_location || null,
-      project_duration: form.project_duration || null,
-      budget: form.budget || null,
+      delivery_location: form.delivery_location || null,
+      volume_needed: form.volume_needed || null,
+      delivery_frequency: form.delivery_frequency || null,
       details: form.details,
-    });
+    };
+
+    const { error } = await persistQuoteRequest(payload);
 
     if (error) {
       setStatus('error');
       setErrorMsg('Something went wrong submitting your request. Please try again.');
       return;
     }
+
     setStatus('success');
     setForm({
       name: '',
       email: '',
       phone: '',
       company: '',
-      service: '',
-      project_location: '',
-      project_duration: '',
-      budget: '',
+      delivery_location: '',
+      volume_needed: '',
+      delivery_frequency: '',
       details: '',
     });
   };
@@ -85,7 +101,7 @@ export default function Quote() {
               <h2 className="text-2xl font-bold text-neutral-900 mb-3">What Happens Next?</h2>
               <ol className="space-y-5">
                 {[
-                  { step: '01', title: 'We Review Your Request', desc: 'Our team assesses your requirements, timeline, and delivery needs.' },
+                  { step: '01', title: 'We Review Your Request', desc: 'Our team reviews your volume, location, and delivery needs.' },
                   { step: '02', title: 'Tailored Quote', desc: 'You receive a competitive quote with timeline and delivery details within 2 business days.' },
                   { step: '03', title: 'Scheduled Delivery', desc: 'Once approved, our logistics team schedules and delivers your service.' },
                 ].map((item) => (
@@ -131,7 +147,7 @@ export default function Quote() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-1">Service Request</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-1">Diesel Supply Request</h2>
                   <p className="text-sm text-neutral-600 mb-4">Fields marked with * are required.</p>
 
                   <div className="grid sm:grid-cols-2 gap-5">
@@ -143,39 +159,21 @@ export default function Quote() {
                     <Field label="Company" name="company" value={form.company} onChange={handleChange} />
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">
-                      Service Required <span className="text-primary-600">*</span>
-                    </label>
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-neutral-200 rounded text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
-                    >
-                      <option value="">Select a service...</option>
-                      {services.map((s) => (
-                        <option key={s.title} value={s.title}>{s.title}</option>
-                      ))}
-                    </select>
-                  </div>
-
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <Field label="Delivery Location" name="project_location" value={form.project_location} onChange={handleChange} />
+                    <Field label="Delivery Location" name="delivery_location" value={form.delivery_location} onChange={handleChange} required />
                     <div>
                       <label className="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">
-                        Expected Duration
+                        Volume Needed
                       </label>
                       <select
-                        name="project_duration"
-                        value={form.project_duration}
+                        name="volume_needed"
+                        value={form.volume_needed}
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-white border border-neutral-200 rounded text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
                       >
-                        <option value="">Select duration...</option>
-                        {durations.map((d) => (
-                          <option key={d} value={d}>{d}</option>
+                        <option value="">Select volume...</option>
+                        {volumes.map((v) => (
+                          <option key={v} value={v}>{v}</option>
                         ))}
                       </select>
                     </div>
@@ -183,24 +181,24 @@ export default function Quote() {
 
                   <div>
                     <label className="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">
-                      Estimated Budget
+                      Delivery Frequency
                     </label>
                     <select
-                      name="budget"
-                      value={form.budget}
+                      name="delivery_frequency"
+                      value={form.delivery_frequency}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-white border border-neutral-200 rounded text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
                     >
-                      <option value="">Select budget range...</option>
-                      {budgets.map((b) => (
-                        <option key={b} value={b}>{b}</option>
+                      <option value="">Select frequency...</option>
+                      {frequency.map((f) => (
+                        <option key={f} value={f}>{f}</option>
                       ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-2">
-                      Service Details <span className="text-primary-600">*</span>
+                      Additional Details <span className="text-primary-600">*</span>
                     </label>
                     <textarea
                       name="details"
@@ -209,7 +207,7 @@ export default function Quote() {
                       required
                       rows={5}
                       className="w-full px-4 py-3 bg-white border border-neutral-200 rounded text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
-                      placeholder="Describe your requirements, delivery schedule, and any specific needs..."
+                      placeholder="Any specific access instructions, preferred delivery time, or other details..."
                     />
                   </div>
 

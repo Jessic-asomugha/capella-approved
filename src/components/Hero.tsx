@@ -3,9 +3,9 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const hero = {
   image: 'https://images.pexels.com/photos/162568/oil-pump-jack-sunset-clouds-silhouette-162568.jpeg?auto=compress&cs=tinysrgb&h=650&w=1600',
-  kicker: 'Integrated Solutions. Trusted Results.',
+  kicker: 'Powering Businesses. Fueling Growth.',
   heading: 'Capella Integrated\nGlobal Limited',
-  sub: 'A diversified Nigerian company providing integrated business solutions across oil and gas, procurement, logistics, engineering, construction support, and general contracting.',
+  sub: 'A Nigerian company focused on providing reliable diesel supply to businesses and organisations across different industries, helping operations stay efficient, productive, and uninterrupted.',
 };
 
 export default function Hero() {
