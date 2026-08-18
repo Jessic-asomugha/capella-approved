@@ -24,18 +24,6 @@ export default function Footer() {
             <p className="text-white/50 text-sm leading-relaxed max-w-sm mb-6">
               Capella Integrated Global Limited is a Nigerian company focused on providing reliable diesel supply to businesses and organisations across different industries.
             </p>
-            <div className="flex gap-3">
-              {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 border border-white/15 rounded-sm flex items-center justify-center text-white/60 hover:text-white hover:border-accent-400 hover:bg-accent-400/10 transition-all duration-200"
-                  aria-label="Social link"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -105,9 +93,6 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <p>© {new Date().getFullYear()} Capella Integrated Global Limited. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white/70 transition-colors">Cookie Policy</a>
-          </div>
         </div>
       </div>
     </footer>

@@ -26,11 +26,7 @@ export default function MissionVision() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 to-transparent" />
           </div>
-          {/* Floating stat */}
-          <div className="absolute -bottom-6 -right-4 md:-right-8 bg-primary-900 text-white p-6 rounded shadow-xl max-w-[200px]">
-            <div className="text-3xl font-bold text-accent-400">Est. 2024</div>
-            <div className="text-sm text-white/70 mt-1">A new name in integrated services</div>
-          </div>
+
         </div>
 
         {/* Text */}

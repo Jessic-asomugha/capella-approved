@@ -222,15 +222,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="bg-neutral-100 h-80 relative">
-        <iframe
-          title="Capella location"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=7.35%2C9.01%2C7.45%2C9.08&layer=mapnik&marker=9.05%2C7.40"
-          className="w-full h-full border-0 grayscale"
-          loading="lazy"
-        />
-      </section>
+
     </>
   );
 }

@@ -23,18 +23,18 @@ export default function ClientSuccess() {
   const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden bg-primary-900">
+    <section id="projects" className="relative py-24 overflow-hidden bg-white">
       <div className="absolute inset-0">
   
-        <div className="absolute inset-0 bg-primary-900/75" />
+        <div className="absolute inset-0 bg-white/75" />
       </div>
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2.5 mb-4">
             <CheckCircle2 className="w-6 h-6 text-accent-400" />
-            <span className="text-white font-semibold text-lg">Built on reliability and trust</span>
+            <span className="text-neutral-900 font-semibold text-lg">Built on reliability and trust</span>
           </div>
-          <p className="text-white/70 mt-2">
+          <p className="text-neutral-600 mt-2">
             From factories and estates to hospitals and logistics operations, businesses trust Capella for dependable diesel supply and consistent support.
           </p>
         </div>
