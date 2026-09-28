@@ -7,7 +7,7 @@ import { useInView } from '../hooks/useInView';
 const industries = [
   'Oil & Gas', 'Construction Companies', 'Manufacturing Industries', 'Hotels',
   'Hospitals', 'Schools & Universities', 'Government Agencies', 'Telecommunications',
-  ' Companies', 'Estates', 'Supermarkets', 'Shopping Malls',
+  'Logistics Companies', 'Estates', 'Supermarkets', 'Shopping Malls',
   'Churches', 'Banks', 'Restaurants', 'Agricultural Companies', 'Mining Companies',
 ];
 
